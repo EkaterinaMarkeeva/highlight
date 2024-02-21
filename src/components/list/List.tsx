@@ -1,7 +1,7 @@
 import React from "react";
 import { FilterVideo, FilterArticle } from "../filter/Filter";
 
-type ItemType = {
+export type ItemType = {
   type: string,
   url?: string,
   title?: string,
@@ -26,4 +26,4 @@ export class List extends React.Component<ListType> {
       }
     });
   }
-}
+};

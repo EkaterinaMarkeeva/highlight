@@ -9,6 +9,6 @@ export class Popular extends React.Component<PopularType> {
         <span className="label">Popular!</span>
         {this.props.children}
       </div>
-    )
+    );
   }
-}
+};

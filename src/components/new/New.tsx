@@ -9,6 +9,6 @@ export class New extends React.Component<NewType> {
         <span className="label">New!</span>
         {this.props.children}
       </div>
-    )
+    );
   }
-}
+};

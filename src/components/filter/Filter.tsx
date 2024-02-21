@@ -5,25 +5,24 @@ import { Popular } from "../popular/Popular";
 import { New } from "../new/New";
 
 type Props = {
-  type: string,
-  url?: string,
-  title?: string,
-  views: number
+  url?: string;
+  title?: string;
+  views: number;
 };
 
-export const withFilter = () => (Component: any) => {
-  return class extends React.Component {
-    constructor(props: Props) {
+export const withFilter = <P extends Props>(Component: React.ComponentType<P>) => {
+  return class extends React.Component<P> {
+    constructor(props: P) {
       super(props);
     }
-    
+
     componentDidMount() {
       this.filterComponent();
     }
 
-    filterComponent() {
+    filterComponent(): React.ReactElement | null  {
       if (this.props.views > 1000) {
-        return <Popular children={<Component {...this.props} />} />;
+        return <Popular><Component {...this.props} /></Popular>;
       }
 
       if (this.props.views < 100) {
@@ -33,11 +32,11 @@ export const withFilter = () => (Component: any) => {
       return <Component {...this.props} />;
     }
     
-    render() {
+    render(): React.ReactElement | null  {
       return this.filterComponent();
     }
-  }
-}
+  };
+};
 
-export const FilterVideo = withFilter()(Video);
-export const FilterArticle = withFilter()(Article);
+export const FilterVideo = withFilter(Video);
+export const FilterArticle = withFilter(Article);

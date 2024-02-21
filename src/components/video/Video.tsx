@@ -1,12 +1,7 @@
 import React from "react";
+import { ItemType } from "../list/List";
 
-export type VideoType = {
-  type: string,
-  url: string,
-  views: number
-};
-
-export class Video extends React.Component<VideoType> {
+export class Video extends React.Component<ItemType> {
   render() {
     return (
       <div className="item item-video">
@@ -14,5 +9,5 @@ export class Video extends React.Component<VideoType> {
         <p className="views">Просмотров: {this.props.views}</p>
       </div>
     )
-  }
-}
+  };
+};

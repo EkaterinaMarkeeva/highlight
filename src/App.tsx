@@ -38,4 +38,4 @@ export default function App() {
   return (
       <List list={list} />
   );
-}
+};
