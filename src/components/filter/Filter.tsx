@@ -4,8 +4,19 @@ import { Article } from "../article/Article";
 import { Popular } from "../popular/Popular";
 import { New } from "../new/New";
 
+type Props = {
+  type: string,
+  url?: string,
+  title?: string,
+  views: number
+};
+
 export const withFilter = () => (Component: any) => {
   return class extends React.Component {
+    constructor(props: Props) {
+      super(props);
+    }
+    
     componentDidMount() {
       this.filterComponent();
     }
